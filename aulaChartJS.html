@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Implementando o ChartJS</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body style="display: flex;">
+    <div>
+        <canvas id="myChart" style="position: relative; height:40vh; width:40vw;">
+            <!-- Canvas é um quadro branco onde desenharemos algo, no caso, nosso gráfico. -->
+
+        </canvas>
+    </div>
+
+    <div>
+        <canvas id="myChart2" style="position: relative; height:40vh; width:40vw;"></canvas>
+    </div>
+</body>
+
+</html>
+
+<script>
+    // Const: é um tipo de variável, só que constante, ou seja, nada que eu fizer vai alterar seu valor.
+    const labels = [
+        'Janeiro',
+        'Fevereiro',
+        'Março',
+        'Abril',
+        'Maio',
+        'Junho',
+    ]; // Vetor de labels
+
+
+    const data = {
+        labels: labels,
+        datasets: [{
+            label: 'Meu primeiro dataset',
+            backgroundColor: 'rgb(255, 99, 132)',
+            borderColor: 'rgb(255, 99, 132)',
+            data: [0, 10, 5, 2, 20, 30, 45] // Métricas
+        },
+        {
+            label: 'Meu segundo dataset',
+            backgroundColor: 'rgb(0, 0, 255)',
+            borderColor: 'rgb(0, 0, 255)',
+            data: [0 + 10, 10 + 10, 5 + 10, 2 + 10, 20 + 10, 10 + 10, 45 + 10]
+        }]
+    }; // Não é apenas um vetor, ela também é um JSON
+
+    const config = {
+        type: 'line',
+        data: data,
+        options: {}
+    };
+
+    const config2 = {
+        type: 'bar',
+        data: data,
+        options: {}
+    };
+</script>
+
+<script>
+    const myChart = new Chart(
+        document.getElementById('myChart'),
+        config
+    );
+
+    const myChart2 = new Chart(
+        document.getElementById('myChart2'),
+        config2
+    );
+</script>
+
+<!-- Vídeo aprendendo a usar ChartJS pela primeira vez com o professor Marco Rover
+Aula de Pesquisa e Inovação com a professora Fernanda Caramico -->
