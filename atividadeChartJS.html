@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade - ChartJS</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body style="display: flex;">
+    <div>
+        <canvas id="chart_line" style="position: relative; height:40vh; width:40vw;"></canvas>
+    </div>
+
+    <div>
+        <canvas id="chart_bar" style="position: relative; height:40vh; width:40vw;"></canvas>
+    </div>
+</body>
+
+</html>
+
+<script>
+    const hours_labels = ['12:00', '13:00', '14:00', '15:00', '16:00', '17:00'];
+    const month_labels = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho',];
+
+    const data_line = {
+        labels: hours_labels,
+        datasets: [{
+            label: 'Temperatura',
+            backgroundColor: 'rgb(255, 99, 132)',
+            borderColor: 'rgb(255, 99, 132)',
+            data: [30, 29, 28, 25, 22, 23]
+        },
+        {
+            label: 'Umidade',
+            backgroundColor: 'rgb(0, 0, 255)',
+            borderColor: 'rgb(0, 0, 255)',
+            data: [80, 82, 80, 85, 80, 83]
+        }]
+    };
+    const data_bar = {
+        labels: month_labels,
+        datasets: [{
+            label: 'Temperatura Média',
+            backgroundColor: 'rgb(255, 99, 132)',
+            borderColor: 'rgb(255, 99, 132)',
+            data: [22, 24, 27, 23, 20, 18]
+        },
+        {
+            label: 'Umidade Média',
+            backgroundColor: 'rgb(0, 0, 255)',
+            borderColor: 'rgb(0, 0, 255)',
+            data: [90, 89, 93, 87, 88, 82]
+        }]
+    };
+
+    const config_line = {
+        type: 'line',
+        data: data_line,
+        options: {}
+    };
+
+    const config_bar = {
+        type: 'bar',
+        data: data_bar,
+        options: {}
+    };
+</script>
+
+<script>
+    const chart_line = new Chart(
+        document.getElementById('chart_line'),
+        config_line
+    );
+
+    const chart_bar = new Chart(
+        document.getElementById('chart_bar'),
+        config_bar
+    );
+</script>
+
+<!-- Atividade de ChartJS - Pesquisa e Inovação
+Prof: Fernanda Caramico
+Por: Lucas Santos - 1ADS -->
